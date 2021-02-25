@@ -1,0 +1,147 @@
+/* Core Style */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.4;
+    font-size: 1rem;
+}
+
+/* Utility style */
+.container {
+    /* background: red; */
+    max-width: 1170px;
+    margin: auto;
+    padding: 16px;
+}
+
+/* Database style */
+.databases {
+    background-color: #eee;
+    min-height: 100vh;
+    width: 100%;
+    padding: 100px 0;
+}
+
+.databases .heading {
+    /* background: brown; */
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.databases .heading h1 {
+    text-align: center;
+    font-size: 40px;
+    font-size: 2.5rem;
+    color: #000;
+    /* margin: 0; */
+
+}
+
+.databases .content {
+    /* background: yellow; */
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.databases .content .box .database {
+    /* background-color:aqua; */
+    padding: 32px;
+    text-align: center;
+    position: relative;
+}
+
+.databases .content .box .database::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    border-bottom: 3px solid transparent;
+    border-left: 3px solid transparent;
+    width: 0;
+    height: 0;
+    box-sizing: border-box;
+    transition: all 0.8s ease;
+}
+
+.databases .content .box .database::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 0;
+    border-right: 3px solid transparent;
+    border-top: 3px solid transparent;
+    width: 0;
+    height: 0;
+    box-sizing: border-box;
+    transition: all 0.8s ease;
+}
+
+.databases .content .box:hover .database::after,
+.databases .content .box:hover .database::before {
+    border-color: red;
+    width: 100%;
+    height: 100%;
+}
+
+.databases .content .box:hover .database .icon {
+    /* background: purple; */
+    animation: scrolldown 1s ease;
+}
+
+@keyframes scrolldown {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(0);
+    }
+
+    40% {
+        transform: translateX(-15px);
+    }
+
+    60% {
+        transform: translateX(-5px);
+    }
+}
+
+.databases .content .box .database img {
+    width: 64px;
+}
+
+.databases .content .box .database h3 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #000;
+    margin: 16px 0;
+
+}
+
+.databases .content .box .database p {
+    font-size: 14px;
+    color: #000;
+    line-height: 24px;
+}
+
+.databases .content .box:hover .database h3 {
+    color: red;
+}
+
+/* Responsive media query */
+@media screen and (max-width: 768px) {
+    .databases .content {
+        padding: 16px;
+        grid-template-columns: 1fr;
+    
+    }
+    
+}
+
+@media screen and (max-width: 500px) {
+    .databases .heading h1 {
+        font-size: 32px;
+    }
+}
